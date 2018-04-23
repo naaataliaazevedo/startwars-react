@@ -30,36 +30,46 @@ const ButtonDetails = styled.div`
 let images = [
   {
     src: '../assets/luke-skywalker.jpg',
+    name: 'Like Skywalker',
   },
   {
     src: '/assets/c3po.png',
+    name: 'C3-P0'
   },
   {
     src: '/assets/r2-d2.gif',
+    name: 'R2-D2',
   },
   {
     src: '/assets/darth-vader.png',
+    name: 'Darth Vader',
   },
   {
     src: '/assets/leia-organa.png',
+    name: 'Leia Organa',
   },
   {
     src: '/assets/owen-lars.jpg',
+    name: 'Owen Lars',
   },
   {
     src: '/assets/beru-whitesun-lars.jpg',
+    name: 'Breu Whitesun Lars',
   },
   {
     src: '/assets/r5-d4.jpg',
+    name: 'R5-D4',
   },
   {
     src: '/assets/biggs-darklighter.jpg',
+    name: 'Biggs Darklighter',
   },
   {
     src: '/assets/obi-wan-kenobi.jpg',
+    name: 'Obi Wan Kenobi'
   },
 ].map((image) => {
-  return <img src={image.src} alt="asdasdasd" />
+  return <img src={image.src} alt={image.name} />
 });
 
 export class Characters extends React.Component {

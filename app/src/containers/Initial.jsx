@@ -26,7 +26,7 @@ export class Initial extends React.Component {
         <Home>
           <Title>StarQuiz!</Title>
           <Button>
-            <Link key="jogar" to="/profile">Jogar</Link>
+            <Link key="jogar" to="/characters">Jogar</Link>
           </Button>
         </Home>
       </section>

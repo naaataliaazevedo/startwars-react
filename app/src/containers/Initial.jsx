@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import darthVader from '../assets/darth-vader.jpg';
-
+// imagens https://www.pinterest.pt/pin/372039619211406791/
 const Home = styled.div`
   float: left;
   width: 100%;

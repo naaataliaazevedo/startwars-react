@@ -27,6 +27,41 @@ const ButtonDetails = styled.div`
   width: 50%;
 `;
 
+let images = [
+  {
+    src: '../assets/luke-skywalker.jpg',
+  },
+  {
+    src: '/assets/c3po.png',
+  },
+  {
+    src: '/assets/r2-d2.gif',
+  },
+  {
+    src: '/assets/darth-vader.png',
+  },
+  {
+    src: '/assets/leia-organa.png',
+  },
+  {
+    src: '/assets/owen-lars.jpg',
+  },
+  {
+    src: '/assets/beru-whitesun-lars.jpg',
+  },
+  {
+    src: '/assets/r5-d4.jpg',
+  },
+  {
+    src: '/assets/biggs-darklighter.jpg',
+  },
+  {
+    src: '/assets/obi-wan-kenobi.jpg',
+  },
+].map((image) => {
+  return <img src={image.src} alt="asdasdasd" />
+});
+
 export class Characters extends React.Component {
 
   constructor() {
@@ -59,16 +94,16 @@ export class Characters extends React.Component {
       );
     }
 
-    console.log('data no render', data, Object.values(data)[0], Object.values(data)[0].map((value) => { return value.name }));
+    // console.log('data no render', data, Object.values(data)[0], Object.values(data)[0].map((value) => { return value.name }));
     return (
       <section>
         <Title>Characters</Title>
         <div>
-          {Object.values(data)[0].map((value) => {
+          {Object.values(data)[0].map((value, ind) => {
             return (
               <PersonagensBox key={value.name}>
                 <p>{value.name}</p>
-                <img src="#" alt="imagem" />
+                {images[ind]}
                 <SelectedName>
                   <form action="">
                     <input type="radio" name="gender" value="male" />Male

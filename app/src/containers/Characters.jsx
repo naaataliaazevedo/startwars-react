@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+// import MoreInformations from '';
 
 import LukeSkywalker from '../assets/luke-skywalker.jpg';
 import C3P0 from '../assets/c3po.png';
@@ -12,6 +13,10 @@ import BreuWhitesunLars from '../assets/beru-whitesun-lars.jpg';
 import R5D4 from '../assets/r5-d4.jpg';
 import BiggsDarklighter from '../assets/biggs-darklighter.jpg';
 import ObiWanKenobi from '../assets/obi-wan-kenobi.jpg';
+
+type State = {
+  click: boolean,
+};
 
 const Title = styled.h1`
   font-size: 2rem;
@@ -89,8 +94,11 @@ export class Characters extends React.Component {
     super();
     this.state = {
       data: [],
+      click: false,
     };
   }
+
+  static state: State;
 
   componentDidMount() {
     fetch('https://swapi.co/api/people/')
@@ -104,6 +112,11 @@ export class Characters extends React.Component {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  handleClick = () => {
+    console.log('clicou aqui');
+    this.setState({ click: true });
   }
 
   render() {
@@ -127,11 +140,10 @@ export class Characters extends React.Component {
                 {images[ind]}
                 <SelectedName>
                   <form action="">
-                    <input type="radio" name="gender" value="male" />Male
-                    <input type="radio" name="gender" value="female" />Female
-                    <input type="radio" name="gender" value="other" />Other
+                    <input type="text" name="gender" value="male" />
                   </form>
                 </SelectedName>
+                <button onClick={this.handleClick}>...</button>
 
                 <ButtonDetails>
                   <Link to="/detalhes-do-personagem">Detalhes</Link>

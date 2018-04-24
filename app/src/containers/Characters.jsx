@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// import MoreInformations from '';
+import MoreInformations from '../components/MoreInformations';
 
 import LukeSkywalker from '../assets/luke-skywalker.jpg';
 import C3P0 from '../assets/c3po.png';
@@ -96,6 +96,7 @@ export class Characters extends React.Component {
       data: [],
       click: false,
     };
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   static state: State;
@@ -112,11 +113,6 @@ export class Characters extends React.Component {
       .catch((error) => {
         console.error(error);
       });
-  }
-
-  handleClick = () => {
-    console.log('clicou aqui');
-    this.setState({ click: true });
   }
 
   render() {
@@ -143,7 +139,7 @@ export class Characters extends React.Component {
                     <input type="text" name="gender" value="male" />
                   </form>
                 </SelectedName>
-                <button onClick={this.handleClick}>...</button>
+                <MoreInformations onClick={this.handleClick}/>
 
                 <ButtonDetails>
                   <Link to="/detalhes-do-personagem">Detalhes</Link>

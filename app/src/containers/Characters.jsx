@@ -2,6 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import LukeSkywalker from '../assets/luke-skywalker.jpg';
+import C3P0 from '../assets/c3po.png';
+import R2D2 from '../assets/r2-d2.gif';
+import DarthVader from '../assets/darth-vader.png';
+import LeiaOrgana from '../assets/leia-organa.png';
+import OwenLars from '../assets/owen-lars.jpg';
+import BreuWhitesunLars from '../assets/beru-whitesun-lars.jpg';
+import R5D4 from '../assets/r5-d4.jpg';
+import BiggsDarklighter from '../assets/biggs-darklighter.jpg';
+import ObiWanKenobi from '../assets/obi-wan-kenobi.jpg';
+
 const Title = styled.h1`
   font-size: 2rem;
   font-weight: bold;
@@ -10,7 +21,7 @@ const Title = styled.h1`
 const PersonagensBox = styled.div`
   float: left;
   width: calc(100% / 4);
-  height: 10rem;
+  height: 20rem;
   box-shadow: 5px 10px 8px #cdcdcd;
   border: 1px solid #cdcdcd;
   margin: 1rem 2rem;
@@ -29,47 +40,47 @@ const ButtonDetails = styled.div`
 
 let images = [
   {
-    src: '../assets/luke-skywalker.jpg',
-    name: 'Like Skywalker',
+    src: LukeSkywalker,
+    name: "Like Skywalker"
   },
   {
-    src: '/assets/c3po.png',
-    name: 'C3-P0'
+    src: C3P0,
+    name: "C3-P0"
   },
   {
-    src: '/assets/r2-d2.gif',
-    name: 'R2-D2',
+    src: R2D2,
+    name: "R2-D2"
   },
   {
-    src: '/assets/darth-vader.png',
-    name: 'Darth Vader',
+    src: DarthVader,
+    name: "Darth Vader"
   },
   {
-    src: '/assets/leia-organa.png',
-    name: 'Leia Organa',
+    src: LeiaOrgana,
+    name: "Leia Organa"
   },
   {
-    src: '/assets/owen-lars.jpg',
-    name: 'Owen Lars',
+    src: OwenLars,
+    name: "Owen Lars"
   },
   {
-    src: '/assets/beru-whitesun-lars.jpg',
-    name: 'Breu Whitesun Lars',
+    src: BreuWhitesunLars,
+    name: "Breu Whitesun Lars"
   },
   {
-    src: '/assets/r5-d4.jpg',
-    name: 'R5-D4',
+    src: R5D4,
+    name: "R5-D4"
   },
   {
-    src: '/assets/biggs-darklighter.jpg',
-    name: 'Biggs Darklighter',
+    src: BiggsDarklighter,
+    name: "Biggs Darklighter"
   },
   {
-    src: '/assets/obi-wan-kenobi.jpg',
-    name: 'Obi Wan Kenobi'
-  },
-].map((image) => {
-  return <img src={image.src} alt={image.name} />
+    src: ObiWanKenobi,
+    name: "Obi Wan Kenobi"
+  }
+].map(image => {
+  return <img src={image.src} alt={image.name} style={{width: '200px', height: '200px'}}/>;
 });
 
 export class Characters extends React.Component {

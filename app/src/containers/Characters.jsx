@@ -14,10 +14,6 @@ import R5D4 from '../assets/r5-d4.jpg';
 import BiggsDarklighter from '../assets/biggs-darklighter.jpg';
 import ObiWanKenobi from '../assets/obi-wan-kenobi.jpg';
 
-type State = {
-  click: boolean,
-};
-
 const Title = styled.h1`
   font-size: 2rem;
   font-weight: bold;
@@ -94,12 +90,9 @@ export class Characters extends React.Component {
     super();
     this.state = {
       data: [],
-      click: false,
     };
     // this.handleClick = this.handleClick.bind(this);
   }
-
-  static state: State;
 
   componentDidMount() {
     fetch('https://swapi.co/api/people/')
@@ -139,7 +132,7 @@ export class Characters extends React.Component {
                     <input type="text" name="gender" value="male" />
                   </form>
                 </SelectedName>
-                <MoreInformations onClick={this.handleClick}/>
+                <MoreInformations data={value} index={ind} />
 
                 <ButtonDetails>
                   <Link to="/detalhes-do-personagem">Detalhes</Link>

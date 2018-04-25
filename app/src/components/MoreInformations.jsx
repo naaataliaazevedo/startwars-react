@@ -1,26 +1,40 @@
 import React from 'react';
-
-type Props = {
-  onClick?: () => {},
-};
-
-type State = {
-  click: boolean
-};
+import styled from 'styled-components';
+import Modal from './Modal';
 
 export class MoreInformations extends React.Component {
-  static props: Props;
-  static state: State;
+  constructor() {
+    super();
+    this.state = {
+      isOpen: false
+    };
+    // this.handleClick = this.handleClick.bind(this);
+  }
 
-  handleClick = (ev) => {
-    console.log('adasdasdasdads');
-  };
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
 
   render() {
-    const click = this.state;
-    // console.log('click in another component', click);
+    const { data, index } = this.props;
+    console.log('data', data, index);
     return (
-      <button onClick={this.handleClick}>aquii</button>
+      <div>
+        <button onClick={this.toggleModal}>aquii</button>
+          <div>
+            <Modal
+              show={this.state.isOpen}
+              onClose={this.toggleModal}>
+              <p>nome: {data.name}</p>
+              <p>cor dos olhos: {data.eye_color}</p>
+              <p>sexo: {data.gender}</p>
+              <p>cor da roupa: {data.skin_color}</p>
+              <p>aqui caraiooo</p>
+            </Modal>
+          </div>
+      </div>
     );
   }
 }

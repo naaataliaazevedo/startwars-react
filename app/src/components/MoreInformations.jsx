@@ -22,7 +22,7 @@ export class MoreInformations extends React.Component {
     console.log('data', data, index);
     return (
       <div>
-        <button onClick={this.toggleModal}>aquii</button>
+        <button onClick={this.toggleModal}>...</button>
           <div>
             <Modal
               show={this.state.isOpen}

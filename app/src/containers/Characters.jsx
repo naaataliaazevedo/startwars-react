@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import MoreInformations from '../components/MoreInformations';
+import InputCharacter from '../components/InputCharacter';
 
 import LukeSkywalker from '../assets/luke-skywalker.jpg';
 import C3P0 from '../assets/c3po.png';
@@ -117,7 +118,6 @@ export class Characters extends React.Component {
       );
     }
 
-    // console.log('data no render', data, Object.values(data)[0], Object.values(data)[0].map((value) => { return value.name }));
     return (
       <section>
         <Title>Characters</Title>
@@ -128,14 +128,10 @@ export class Characters extends React.Component {
                 <p>{value.name}</p>
                 {images[ind]}
                 <SelectedName>
-                  <form action="">
-                    <input type="text" name="gender" value="male" />
-                  </form>
+                  <InputCharacter />
                 </SelectedName>
-                <MoreInformations data={value} index={ind} />
-
                 <ButtonDetails>
-                  <Link to="/detalhes-do-personagem">Detalhes</Link>
+                  <MoreInformations data={value} index={ind} />
                 </ButtonDetails>
               </PersonagensBox>
             );

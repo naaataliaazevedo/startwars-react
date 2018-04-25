@@ -14,8 +14,10 @@ const BackdropStyle = styled.div`
 const ModalStyle = styled.div`
   background-color: #fff;
   border-radius: 5px;
-  max-width: 500px;
-  min-height: 300px;
+  width: 500px;
+  max-width: 100%;
+  height: 300px;
+  min-height: 100%;
   margin: 0 auto;
   padding: 30px;
   position: relative

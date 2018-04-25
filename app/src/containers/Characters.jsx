@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import MoreInformations from '../components/MoreInformations';
 import InputCharacter from '../components/InputCharacter';
 
@@ -128,7 +128,7 @@ export class Characters extends React.Component {
                 <p>{value.name}</p>
                 {images[ind]}
                 <SelectedName>
-                  <InputCharacter />
+                  <InputCharacter data={value} />
                 </SelectedName>
                 <ButtonDetails>
                   <MoreInformations data={value} index={ind} />

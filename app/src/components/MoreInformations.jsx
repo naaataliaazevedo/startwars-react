@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import Modal from './Modal';
 
 export class MoreInformations extends React.Component {
@@ -27,7 +27,6 @@ export class MoreInformations extends React.Component {
             <Modal
               show={this.state.isOpen}
               onClose={this.toggleModal}>
-              <p>nome: {data.name}</p>
               <p>cor dos olhos: {data.eye_color}</p>
               <p>sexo: {data.gender}</p>
               <p>cor da roupa: {data.skin_color}</p>

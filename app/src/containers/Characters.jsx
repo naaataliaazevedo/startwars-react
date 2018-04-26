@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // import { Link } from 'react-router-dom';
 import MoreInformations from '../components/MoreInformations';
 import InputCharacter from '../components/InputCharacter';
+import Clock from '../components/Clock';
 
 import LukeSkywalker from '../assets/luke-skywalker.jpg';
 import C3P0 from '../assets/c3po.png';
@@ -94,6 +95,7 @@ export class Characters extends React.Component {
     this.state = {
       data: [],
       value: '',
+      inputsValues: []
     };
     // this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -115,14 +117,22 @@ export class Characters extends React.Component {
   }
 
   handleSubmit(event) {
+    const data = this.state;
+    const valueTarget = event.target[0].value;
     event.preventDefault();
-    console.log('event', event, event.target);
-    console.log('event value', event.target.value);
+
+    Object.values(data)[0].map((value) => { 
+      return value.name === valueTarget ?
+      this.setState(prevState => ({
+        inputsValues: prevState.inputsValues.concat(valueTarget)
+      }))
+      : ''; 
+    });
   }
 
   render() {
     const data = this.state;
-
+    console.log("dentro do render", this.state.inputsValues);
     if (!data) {
       return (
         <div>não tem dataaaa</div>
@@ -132,6 +142,7 @@ export class Characters extends React.Component {
     return (
       <section>
         <Title>Characters</Title>
+        <Clock />
         <div>
           {Object.values(data)[0].map((value, ind) => {
             return (

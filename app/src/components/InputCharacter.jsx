@@ -79,7 +79,7 @@ export class InputCharacter extends React.Component {
 
   render() {
     const { data } = this.props;
-    console.log('aaaaaaaa', this.props.onSubmit);
+
     return(
       <div>
         <ButtonInput onClick={this.toggleModal}>?</ButtonInput>

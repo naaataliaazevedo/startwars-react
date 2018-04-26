@@ -9,15 +9,15 @@ export class InputCharacter extends React.Component {
       value: '',
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  /* handleChange(event) {
     this.setState({value: event.target.value})
-  }
+  }*/
 
-  handleSubmit(event) {
+  /* handleSubmit(event) {
     const { data } = this.props;
     const { value } = this.state;
     let newArr = [];
@@ -27,10 +27,11 @@ export class InputCharacter extends React.Component {
     if (value === data.name) {
       console.log('é igual');
       newArr.push(value);
-      console.log('newArr', newArr);
+      console.log('data e value', data.name, value);
+      // console.log('newArr', newArr);
     }
     console.log('depois de tudo arr', newArr);
-  }
+  }*/
 
   toggleModal = () => {
     this.setState({
@@ -39,16 +40,18 @@ export class InputCharacter extends React.Component {
   }
 
   render() {
+    const { data } = this.props;
+    console.log('aaaaaaaa', this.props.onSubmit);
     return(
       <div>
         <button onClick={this.toggleModal}>?</button>
         <Modal 
           show={this.state.isOpen}
           onClose={this.toggleModal}>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.props.onSubmit}>
             <label>
               Nome:
-              <input type="text" name="name" value={this.state.value} onChange={this.handleChange} />
+              <input type="text" name={data.name} id={data.name} />
             </label>
             <input type="submit" value="Submit" />
           </form>

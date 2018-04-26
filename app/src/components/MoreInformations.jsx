@@ -19,7 +19,7 @@ export class MoreInformations extends React.Component {
 
   render() {
     const { data, index } = this.props;
-    console.log('data', data, index);
+
     return (
       <div>
         <button onClick={this.toggleModal}>...</button>

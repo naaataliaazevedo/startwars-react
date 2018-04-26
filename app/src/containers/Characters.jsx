@@ -91,7 +91,10 @@ export class Characters extends React.Component {
     super();
     this.state = {
       data: [],
+      value: '',
     };
+    // this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleClick = this.handleClick.bind(this);
   }
 
@@ -107,6 +110,12 @@ export class Characters extends React.Component {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log('event', event, event.target);
+    console.log('event value', event.target.value);
   }
 
   render() {
@@ -128,7 +137,7 @@ export class Characters extends React.Component {
                 <p>{value.name}</p>
                 {images[ind]}
                 <SelectedName>
-                  <InputCharacter data={value} />
+                  <InputCharacter data={value} onSubmit={this.handleSubmit} />
                 </SelectedName>
                 <ButtonDetails>
                   <MoreInformations data={value} index={ind} />

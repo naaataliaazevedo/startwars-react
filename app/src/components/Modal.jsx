@@ -30,6 +30,8 @@ const ContainerCloseButton = styled.div`
   > .CloseButton {
     background-color: #fff;
     cursor: pointer;
+    border: transparent;
+    font-size: 1.4rem;
   };
 `;
 

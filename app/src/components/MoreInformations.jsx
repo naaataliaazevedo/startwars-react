@@ -1,7 +1,17 @@
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import Modal from './Modal';
 
+const ButtonDetails = styled.div`
+  float: left;
+  width: 100%;
+  background: #f6f5e3;
+  border: transparent;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  color: #000;
+`;
 export class MoreInformations extends React.Component {
   constructor() {
     super();
@@ -22,7 +32,7 @@ export class MoreInformations extends React.Component {
 
     return (
       <div>
-        <button onClick={this.toggleModal}>...</button>
+        <ButtonDetails onClick={this.toggleModal}>...</ButtonDetails>
           <div>
             <Modal
               show={this.state.isOpen}

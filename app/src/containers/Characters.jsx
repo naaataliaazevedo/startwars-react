@@ -22,22 +22,24 @@ const Title = styled.h1`
 
 const PersonagensBox = styled.div`
   float: left;
-  width: calc(100% / 4);
+  width: calc((100% / 4) - 6px);
   height: 20rem;
   box-shadow: 5px 10px 8px #cdcdcd;
   border: 1px solid #cdcdcd;
   margin: 1rem 2rem;
-  padding: 1rem;
+  padding: 1.4rem;
 `;
 
 const SelectedName = styled.div`
-  float:left;
-  width: 50%;
+  float: left;
+  width: 46%;
+  margin-right: 0.5rem;
 `;
 
 const ButtonDetails = styled.div`
   float: left;
-  width: 50%;
+  width: 46%;
+  margin-left: 0.5rem;
 `;
 
 let images = [
@@ -82,7 +84,7 @@ let images = [
     name: "Obi Wan Kenobi"
   }
 ].map(image => {
-  return <img src={image.src} alt={image.name} style={{width: '200px', height: '200px'}}/>;
+  return <img src={image.src} alt={image.name} style={{width: '200px', height: '200px', margin: '2rem 0'}}/>;
 });
 
 export class Characters extends React.Component {
@@ -134,7 +136,6 @@ export class Characters extends React.Component {
           {Object.values(data)[0].map((value, ind) => {
             return (
               <PersonagensBox key={value.name}>
-                <p>{value.name}</p>
                 {images[ind]}
                 <SelectedName>
                   <InputCharacter data={value} onSubmit={this.handleSubmit} />

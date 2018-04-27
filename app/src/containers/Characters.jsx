@@ -146,7 +146,7 @@ export class Characters extends React.Component {
     const valueTarget = event.target[0].value;
     event.preventDefault();
 
-    Object.values(data)[0].map((value) => { 
+    Object.values(data)[0].map((value) => {
       return value.name === valueTarget ?
       this.setState(prevState => ({
         inputsValues: prevState.inputsValues.concat(valueTarget)
@@ -158,6 +158,7 @@ export class Characters extends React.Component {
   render() {
     const data = this.state;
     const { clock, inputsValues, page } = this.state;
+    const totalValues = inputsValues.length * 10;
     console.log('dentro do render', this.state.inputsValues);
     // console.log('data aqui no character', Object.values(data)[0]);
     // console.log('pageee', page);
@@ -176,7 +177,7 @@ export class Characters extends React.Component {
           </BoxClock>
         </ContainerHeader>
         {clock && clock === true &&
-          <TimeOut>asdasdasdads</TimeOut>
+          <TimeOut>{totalValues} Pontos</TimeOut>
         }
         <div>
           {Object.values(data)[0].map((value, ind) => {

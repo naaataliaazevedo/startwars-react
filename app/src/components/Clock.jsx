@@ -14,9 +14,6 @@ class Clock extends React.Component {
   }
 
   render() {
-    console.log(setTimeout(function() {
-      console.log("setTimeout: Ja passou 3 minutos!");
-    }, 180000));
 
     return (
       <div>

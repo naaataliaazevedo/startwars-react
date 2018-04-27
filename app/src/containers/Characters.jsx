@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MoreInformations from '../components/MoreInformations';
 import InputCharacter from '../components/InputCharacter';
 import Clock from '../components/Clock';
+import TimeOut from './TimeOut';
 
 import LukeSkywalker from '../assets/luke-skywalker.jpg';
 import C3P0 from '../assets/c3po.png';
@@ -95,7 +96,8 @@ export class Characters extends React.Component {
     this.state = {
       data: [],
       value: '',
-      inputsValues: []
+      inputsValues: [],
+      clock: false,
     };
     // this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -114,6 +116,13 @@ export class Characters extends React.Component {
       .catch((error) => {
         console.error(error);
       });
+
+    /*setTimeout(() => {
+      console.log("setTimeout: Ja passou 2 minutos!");
+      this.setState({
+        clock: true,
+      });
+    }, 120000);*/
   }
 
   handleSubmit(event) {
@@ -132,8 +141,10 @@ export class Characters extends React.Component {
 
   render() {
     const data = this.state;
-    console.log("dentro do render", this.state.inputsValues);
-    if (!data) {
+    const { clock, inputsValues } = this.state;
+    console.log('dentro do render', this.state.inputsValues);
+
+    if (data.data.length === 0) {
       return (
         <div>não tem dataaaa</div>
       );
@@ -143,6 +154,9 @@ export class Characters extends React.Component {
       <section>
         <Title>Characters</Title>
         <Clock />
+        {clock && clock === true &&
+          <TimeOut>asdasdasdads</TimeOut>
+        }
         <div>
           {Object.values(data)[0].map((value, ind) => {
             return (

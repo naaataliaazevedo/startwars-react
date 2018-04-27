@@ -86,6 +86,7 @@ export class InputCharacter extends React.Component {
         <Modal 
           show={this.state.isOpen}
           onClose={this.toggleModal}>
+          <h2>Escreva o nome do personagem:</h2>
           <form onSubmit={this.props.onSubmit}>
             <Label>Nome:</Label>
             <InputText type="text" name={data.name} id={data.name} />

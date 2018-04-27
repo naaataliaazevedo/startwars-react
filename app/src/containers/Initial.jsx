@@ -32,7 +32,7 @@ export class Initial extends React.Component {
     return (
       <section>
         <Home>
-          <img src={darthVader} alt="Seja Bem-vindo" />
+          <img src={darthVader} alt="Seja Bem-vindo" style={{width: 200, height: 200}} />
           <Title>StarQuiz!</Title>
           <Button>
             <Link key="jogar" to="/characters" style={linkButton}>Jogar</Link>

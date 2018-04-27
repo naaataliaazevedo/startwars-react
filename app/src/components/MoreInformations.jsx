@@ -31,7 +31,7 @@ export class MoreInformations extends React.Component {
 
   componentDidMount() {
     const { data } = this.props;
-    console.log('data aqui no information', data);
+    // console.log('data aqui no information', data);
     fetch(data.homeworld)
       .then(response => response.json())
       .then(data => {
@@ -60,11 +60,11 @@ export class MoreInformations extends React.Component {
   }
 
   render() {
-    const { data, index } = this.props;
+    const { data } = this.props;
     const { homeworld, species } = this.state;
     // console.log('home', homeworld);
     // console.log('data in details', data);
-    console.log('species', species);
+    // console.log('species', species);
     return (
       <div>
         <ButtonDetails onClick={this.toggleModal}>...</ButtonDetails>

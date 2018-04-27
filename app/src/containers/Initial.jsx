@@ -27,12 +27,14 @@ export class Initial extends React.Component {
       textDecoration: 'none',
       display: 'block',
       padding: '0.8rem',
+      fontWeight: 'bold',
+      textTransform: 'uppercase',
     };
 
     return (
       <section>
         <Home>
-          <img src={darthVader} alt="Seja Bem-vindo" style={{width: 200, height: 200}} />
+          <img src={darthVader} alt="Seja Bem-vindo" style={{width: 300, height: 300}} />
           <Title>StarQuiz!</Title>
           <Button>
             <Link key="jogar" to="/characters" style={linkButton}>Jogar</Link>

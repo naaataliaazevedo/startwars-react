@@ -5,6 +5,7 @@ import MoreInformations from '../components/MoreInformations';
 import InputCharacter from '../components/InputCharacter';
 import Clock from '../components/Clock';
 import TimeOut from './TimeOut';
+import Pagination from '../components/Pagination';
 
 import LukeSkywalker from '../assets/luke-skywalker.jpg';
 import C3P0 from '../assets/c3po.png';
@@ -17,9 +18,23 @@ import R5D4 from '../assets/r5-d4.jpg';
 import BiggsDarklighter from '../assets/biggs-darklighter.jpg';
 import ObiWanKenobi from '../assets/obi-wan-kenobi.jpg';
 
+const ContainerHeader = styled.div`
+  width: 100%;
+  float: left;
+`;
+
 const Title = styled.h1`
   font-size: 2rem;
   font-weight: bold;
+  width: 50%;
+  float: left;
+`;
+
+const BoxClock = styled.div`
+  width: 50%;
+  float: left;
+  padding: 2rem 0;
+  font-size: 2rem;
 `;
 
 const PersonagensBox = styled.div`
@@ -95,13 +110,13 @@ export class Characters extends React.Component {
     super();
     this.state = {
       data: [],
+      page: [],
       value: '',
       inputsValues: [],
       clock: false,
     };
-    // this.handleChange = this.handleChange.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -110,6 +125,7 @@ export class Characters extends React.Component {
       .then(data => {
         console.log(data);
         this.setState({
+          page: data,
           data: data.results,
         });
       })
@@ -117,12 +133,12 @@ export class Characters extends React.Component {
         console.error(error);
       });
 
-    /*setTimeout(() => {
+    setTimeout(() => {
       console.log("setTimeout: Ja passou 2 minutos!");
       this.setState({
         clock: true,
       });
-    }, 120000);*/
+    }, 120000);
   }
 
   handleSubmit(event) {
@@ -141,9 +157,10 @@ export class Characters extends React.Component {
 
   render() {
     const data = this.state;
-    const { clock, inputsValues } = this.state;
+    const { clock, inputsValues, page } = this.state;
     console.log('dentro do render', this.state.inputsValues);
-
+    // console.log('data aqui no character', Object.values(data)[0]);
+    // console.log('pageee', page);
     if (data.data.length === 0) {
       return (
         <div>não tem dataaaa</div>
@@ -152,8 +169,12 @@ export class Characters extends React.Component {
 
     return (
       <section>
-        <Title>Characters</Title>
-        <Clock />
+        <ContainerHeader>
+          <Title>StarQuiz!</Title>
+          <BoxClock>
+            <Clock clock={clock} />
+          </BoxClock>
+        </ContainerHeader>
         {clock && clock === true &&
           <TimeOut>asdasdasdads</TimeOut>
         }
@@ -166,13 +187,14 @@ export class Characters extends React.Component {
                   <InputCharacter data={value} onSubmit={this.handleSubmit} />
                 </SelectedName>
                 <ButtonDetails>
-                  <MoreInformations data={value} index={ind} />
+                  <MoreInformations data={value} />
                 </ButtonDetails>
               </PersonagensBox>
             );
           })
           }
         </div>
+        <Pagination data={page} />
       </section>
     );
   }

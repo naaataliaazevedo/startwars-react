@@ -17,7 +17,6 @@ const BoxTimeOut = styled.div`
   width: 500px;
   max-width: 100%;
   height: 200px;
-  min-height: 100%;
   margin: 0 auto;
   padding: 30px;
   position: relative;

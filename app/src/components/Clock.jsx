@@ -1,23 +1,59 @@
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-// https://gist.github.com/igmoweb/f1b26c5a8870d8f30bbb0cc348ee617b cronômetro
-//https://www.codigofonte.com.br/codigos/contagem-regressiva
 
-// format using momment https://stackoverflow.com/questions/16129157/countdown-timer-using-moment-js?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 class Clock extends React.Component {
   constructor() {
     super();
-    this.state = {
-      count: 0,
+    this.state = { time: {}, seconds: 120 };
+    this.timer = 0;
+    this.countDown = this.countDown.bind(this);
+  }
+
+  secondsToTime(secs) {
+    let hours = Math.floor(secs / (60 * 60));
+    console.log('hour', hours);
+    let divisor_for_minutes = secs % (60 * 60);
+    let minutes = Math.floor(divisor_for_minutes / 60);
+    console.log('minutes', minutes);
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
+    console.log('seconds', seconds);
+
+    let obj = {
+      h: hours,
+      m: minutes,
+      s: seconds
     };
+    return obj;
+  }
+
+  componentDidMount() {
+    let timeLeftVar = this.secondsToTime(this.state.seconds);
+    this.setState({ time: timeLeftVar });
+    if (this.timer == 0) {
+      this.timer = setInterval(this.countDown, 1000);
+    }
+  }
+
+  countDown() {
+    let seconds = this.state.seconds - 1;
+    this.setState({
+      time: this.secondsToTime(seconds),
+      seconds: seconds
+    });
+
+    if (seconds == 0) {
+      clearInterval(this.timer);
+    }
   }
 
   render() {
-
+    const { clock } = this.props;
+    console.log('clock no clock', clock);
     return (
       <div>
-        {moment().format('LTS')}
+        {this.state.time.m} : {this.state.time.s}
       </div>
     );
   }
